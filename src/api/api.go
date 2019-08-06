@@ -26,7 +26,6 @@ func (api TokenAPI) Get(endpoint string) string {
 	if err != nil {
         log.Println("Erro ao realizar request.\n[ERRO] -", err)
     }
-	
 	body, _ := ioutil.ReadAll(resp.Body)
 	return string([]byte(body))
 
