@@ -1,5 +1,8 @@
 package main
-import "./api"
+import (
+	"./api"
+	"./prometheus"
+)
 import "os"
 import "log"
 import "encoding/json"
@@ -29,4 +32,8 @@ func main() {
 	x := api.Get("/accounts")
 	alpha(x)
 	log.Println(x)
+
+	prometheus.RecordMetrics()
+	prometheus.Serve("/metrics", "2112")
+
 }
