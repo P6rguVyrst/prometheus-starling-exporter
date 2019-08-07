@@ -1,15 +1,15 @@
 package api
 
 import (
+	"io/ioutil"
 	"log"
 	"net/http"
-	"io/ioutil"
 )
 
 type TokenAPI struct {
-	Url			string
-	Version		string
-	Token		string
+	Url     string
+	Version string
+	Token   string
 }
 
 func (api TokenAPI) Get(endpoint string) string {
@@ -19,13 +19,13 @@ func (api TokenAPI) Get(endpoint string) string {
 
 	req, err := http.NewRequest("GET", url, nil)
 	req.Header.Add("Authorization", bearer)
-	
+
 	client := &http.Client{}
 	resp, err := client.Do(req)
 
 	if err != nil {
-        log.Println("Erro ao realizar request.\n[ERRO] -", err)
-    }
+		log.Println("Erro ao realizar request.\n[ERRO] -", err)
+	}
 	body, _ := ioutil.ReadAll(resp.Body)
 	return string([]byte(body))
 

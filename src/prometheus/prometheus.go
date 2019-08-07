@@ -1,11 +1,10 @@
 package prometheus
 
 import (
-	"time"
-    "net/http"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
+	"net/http"
+	"time"
 )
-
 
 func RecordMetrics() {
 	go func() {
@@ -18,6 +17,6 @@ func RecordMetrics() {
 
 func Serve(endpoint, port string) {
 	port = ":" + port
-    http.Handle(endpoint, promhttp.Handler())
-    http.ListenAndServe(port, nil)
+	http.Handle(endpoint, promhttp.Handler())
+	http.ListenAndServe(port, nil)
 }

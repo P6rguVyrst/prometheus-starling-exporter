@@ -1,4 +1,5 @@
 package main
+
 import (
 	"./api"
 	"./prometheus"
@@ -8,10 +9,10 @@ import "log"
 import "encoding/json"
 
 type AccountResponseObject struct {
-	accounts	[]interface{}
+	accounts []interface{}
 }
 
-func alpha(body string){
+func alpha(body string) {
 	var asd AccountResponseObject
 	//asd := make(map[string]interface{})
 	err := json.Unmarshal([]byte(body), &asd)
@@ -24,9 +25,9 @@ func alpha(body string){
 }
 
 func main() {
-	api := api.TokenAPI {
-		Token: os.Getenv("FOO_TOKEN"),
-		Url: os.Getenv("FOO_API"),
+	api := api.TokenAPI{
+		Token:   os.Getenv("FOO_TOKEN"),
+		Url:     os.Getenv("FOO_API"),
 		Version: "/v2",
 	}
 	x := api.Get("/accounts")

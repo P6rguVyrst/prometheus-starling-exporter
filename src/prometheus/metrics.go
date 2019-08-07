@@ -1,4 +1,5 @@
 package prometheus
+
 /*
 	Metric definitions.
 */
