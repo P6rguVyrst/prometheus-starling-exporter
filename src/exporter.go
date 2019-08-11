@@ -2,7 +2,7 @@ package main
 
 import (
 	"./api"
-	"./prometheus"
+	//"./prometheus"
 )
 import "os"
 import "log"
@@ -34,7 +34,7 @@ func main() {
 	alpha(x)
 	log.Println(x)
 
-	prometheus.RecordMetrics()
-	prometheus.Serve("/metrics", "2112")
+	//prometheus.RecordMetrics()
+	//prometheus.Serve("/metrics", "2112")
 
 }
